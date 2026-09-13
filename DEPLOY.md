@@ -25,23 +25,23 @@ gives you HTTPS for free.
 
 ## Credentials
 
-```
-username: puelibrary
-password: puelibrary2026
-```
+**The portal password is never written down in this repository, and must not
+be.** It is the decryption key for `portal.html`; committing it anywhere would
+undo the encryption entirely. Keep it in a password manager and hand it to
+students out of band.
 
-The password is also the decryption key for `portal.html`. It is not stored in
-any file — `index.html` carries only a *verifier* (the password encrypting a
-known string), which is what lets it reject a wrong password offline.
+The username is `puelibrary`. `index.html` carries only a *verifier* — the
+password encrypting a known string — which is what lets it reject a wrong
+password offline without the password itself existing in any file.
 
 ## Editing the portal
 
 `portal.html` is ciphertext, so you cannot edit it directly.
 
 ```bash
-node build.js decrypt puelibrary2026   # -> portal.source.html
+node build.js decrypt <password>       # -> portal.source.html
 # edit portal.source.html (add/remove database cards, change text)
-node build.js encrypt puelibrary2026   # -> portal.html, re-stamps index.html
+node build.js encrypt <password>       # -> portal.html, re-stamps index.html
 rm portal.source.html
 ```
 
@@ -50,7 +50,7 @@ rm portal.source.html
 Re-encrypt with the new one, then update the login hint you give students:
 
 ```bash
-node build.js decrypt puelibrary2026
+node build.js decrypt <current-password>
 node build.js encrypt <new-password>
 rm portal.source.html
 ```
@@ -67,3 +67,16 @@ It does not protect against someone who *has* the password: once they log in,
 the decrypted page is in their browser and they can save or share it. Shared-
 credential access always ends there. Rotate the password each session if that
 matters.
+
+## Never commit
+
+Do not put the portal password, or any vendor database credential, into a file
+in this repository. `portal.source.html` is git-ignored for exactly this reason
+— it is the decrypted portal, and it holds every vendor credential in the clear.
+Delete it as soon as you have finished editing.
+
+Before pushing, check:
+
+```bash
+git grep -nE "password *[:=]" -- ':!DEPLOY.md'
+```
