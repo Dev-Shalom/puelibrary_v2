@@ -1,0 +1,3 @@
+# Decrypted portal — regenerate with: node build.js decrypt <password>
+# Never commit or upload this file; it contains every database credential in plaintext.
+portal.source.html

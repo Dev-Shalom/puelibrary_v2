@@ -252,11 +252,6 @@
 <button class="form__button" id="loginButton" type="submit">Continue</button>
 </form>
 </div>
-<!-- Footer -->
-<p class="footer-text">
-<span class="footer-brand">PEACELAND UNIVERSITY ENUGU</span> — Enugu State, Nigeria<br/>
-            Motto: Integral Human Development
-        </p>
 </div>
 <script>
         // Show/Hide Password Toggle
@@ -267,26 +262,70 @@
             passwordInput.type = this.checked ? 'text' : 'password';
         });
 
-        // Portal Credentials
+        // Portal access — the password is the decryption key for portal.html.
+        // The verifier below is that same password encrypting a known string,
+        // so a wrong password fails here without the password ever being stored.
         const PORTAL_USERNAME = 'puelibrary';
-        const PORTAL_PASSWORD = 'puelibrary2026';
+        const VERIFIER_PLAINTEXT = 'peaceland-portal-unlock';
+        const VERIFIER = 'Dr6Pam6c/7tkznGe4cnlbd8Ed1/VcybPW1skj7lBeVBOw9fT2S5RIb5YIsKRvnEP787rKiipaY5Ea9AFQStmR51yhw==';
+        const KDF_ITERATIONS = 250000;
 
         const loginForm = document.getElementById('login');
         const usernameInput = document.getElementById('loginUsername');
         const errorMessage = document.getElementById('errorMessage');
+        const loginButton = document.getElementById('loginButton');
 
-        loginForm.addEventListener('submit', function(e) {
+        function showError(message) {
+            errorMessage.textContent = message;
+            errorMessage.style.display = 'block';
+        }
+
+        async function unlockKey(password, salt) {
+            const baseKey = await crypto.subtle.importKey(
+                'raw', new TextEncoder().encode(password), 'PBKDF2', false, ['deriveKey']);
+            return crypto.subtle.deriveKey(
+                { name: 'PBKDF2', salt: salt, iterations: KDF_ITERATIONS, hash: 'SHA-256' },
+                baseKey, { name: 'AES-GCM', length: 256 }, false, ['decrypt']);
+        }
+
+        async function checkPassword(password) {
+            const raw = Uint8Array.from(atob(VERIFIER), c => c.charCodeAt(0));
+            const key = await unlockKey(password, raw.slice(0, 16));
+            const plain = await crypto.subtle.decrypt(
+                { name: 'AES-GCM', iv: raw.slice(16, 28) }, key, raw.slice(28));
+            return new TextDecoder().decode(plain) === VERIFIER_PLAINTEXT;
+        }
+
+        loginForm.addEventListener('submit', async function(e) {
             e.preventDefault();
+            errorMessage.style.display = 'none';
+
+            if (!window.crypto || !crypto.subtle) {
+                showError('This portal requires a secure connection (https://). Please open the site over HTTPS.');
+                return;
+            }
 
             const username = usernameInput.value.trim();
             const password = passwordInput.value;
 
-            if (username === PORTAL_USERNAME && password === PORTAL_PASSWORD) {
-                errorMessage.style.display = 'none';
-                try { sessionStorage.setItem('pueLibraryAuth', 'true'); } catch (err) {}
-                window.location.href = 'page.html';
+            loginButton.disabled = true;
+            loginButton.textContent = 'Verifying…';
+
+            let ok = false;
+            try {
+                ok = (username === PORTAL_USERNAME) && await checkPassword(password);
+            } catch (err) {
+                ok = false;
+            }
+
+            loginButton.disabled = false;
+            loginButton.textContent = 'Continue';
+
+            if (ok) {
+                try { sessionStorage.setItem('pueLibraryPass', password); } catch (err) {}
+                window.location.href = 'portal.html';
             } else {
-                errorMessage.style.display = 'block';
+                showError('Invalid username or password. Please try again.');
                 passwordInput.value = '';
                 passwordInput.focus();
             }
