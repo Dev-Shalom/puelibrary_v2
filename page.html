@@ -1,0 +1,1978 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>IGBINEDION UNIVERSITY OKADA — Electronic Databases &amp; Web Resources</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;family=Playfair+Display:wght@700&amp;display=swap" rel="stylesheet"/>
+<style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: url('dark-bg.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #e2e8f0;
+            min-height: 100vh;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10, 15, 35, 0.88);
+            z-index: -1;
+        }
+
+        /* ===== HEADER ===== */
+        .header {
+            background: rgba(0, 32, 144, 0.7);
+            backdrop-filter: blur(10px);
+            border-bottom: 2px solid rgba(255, 193, 7, 0.4);
+            padding: 25px 20px;
+            position: relative;
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .university-logo {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            border: 3px solid rgba(255, 193, 7, 0.6);
+            object-fit: cover;
+            background: rgba(255,255,255,0.1);
+            padding: 4px;
+        }
+
+        .header-text h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #ffffff;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            letter-spacing: 1px;
+        }
+
+        .header-text p {
+            color: #ffc107;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-top: 3px;
+        }
+
+        .logout-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background: rgba(220, 53, 69, 0.8);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border: 1px solid rgba(220, 53, 69, 0.5);
+            transition: all 0.3s ease;
+        }
+
+        .logout-btn:hover {
+            background: rgba(220, 53, 69, 1);
+            box-shadow: 0 5px 20px rgba(220, 53, 69, 0.4);
+            transform: translateY(-2px);
+        }
+
+        /* Marquee */
+        .marquee-container {
+            max-width: 1400px;
+            margin: 15px auto 0;
+            overflow: hidden;
+            white-space: nowrap;
+            background: rgba(255,255,255,0.05);
+            border-radius: 8px;
+            padding: 8px 0;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .marquee-text {
+            display: inline-block;
+            color: #ff6b6b;
+            font-weight: 700;
+            font-size: 0.95rem;
+            animation: marquee 20s linear infinite;
+            text-shadow: 0 0 10px rgba(255, 107, 107, 0.5);
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        /* ===== SEARCH & FILTER BAR ===== */
+        .search-bar-section {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .search-box {
+            position: relative;
+            flex: 1;
+            min-width: 280px;
+            max-width: 500px;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 12px 18px 12px 45px;
+            border-radius: 50px;
+            border: 2px solid rgba(255, 193, 7, 0.3);
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+            color: #fff;
+            font-size: 0.95rem;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .search-box input::placeholder {
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        .search-box input:focus {
+            border-color: rgba(255, 193, 7, 0.7);
+            box-shadow: 0 0 20px rgba(255, 193, 7, 0.15);
+            background: rgba(255, 255, 255, 0.12);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: rgba(255,255,255,0.4);
+            font-size: 1rem;
+        }
+
+        .filter-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .filter-btn {
+            padding: 8px 18px;
+            border-radius: 25px;
+            border: 1px solid rgba(255,255,255,0.15);
+            background: rgba(255,255,255,0.05);
+            color: rgba(255,255,255,0.6);
+            font-size: 0.85rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .filter-btn:hover {
+            background: rgba(255,255,255,0.1);
+            color: #fff;
+        }
+
+        .filter-btn.active {
+            background: rgba(255, 193, 7, 0.9);
+            color: #1a1a2e;
+            border-color: rgba(255, 193, 7, 0.5);
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(255, 193, 7, 0.2);
+        }
+
+        .count-display {
+            color: rgba(255,255,255,0.4);
+            font-size: 0.85rem;
+            margin-left: 20px;
+        }
+
+        .count-display span {
+            color: #ffc107;
+            font-weight: 700;
+        }
+
+        /* ===== MAIN CONTENT ===== */
+        .main-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px 40px;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 25px;
+        }
+
+        .resource-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+
+        .resource-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: rgba(255, 193, 7, 0.6);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+            z-index: 2;
+        }
+
+        .resource-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .resource-card:hover {
+            transform: translateY(-8px);
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 193, 7, 0.3);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 30px rgba(255, 193, 7, 0.1);
+        }
+
+        .card-image-wrap {
+            height: 140px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255,255,255,0.03);
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            padding: 20px;
+            position: relative;
+        }
+
+        .card-image-wrap img {
+            max-height: 100px;
+            max-width: 80%;
+            object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+
+        .resource-card:hover .card-image-wrap img {
+            transform: scale(1.08);
+        }
+
+        .access-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .badge-login {
+            background: rgba(255, 193, 7, 0.9);
+            color: #1a1a2e;
+        }
+
+        .badge-open {
+            background: rgba(34, 197, 94, 0.9);
+            color: #fff;
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        .card-header-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            gap: 10px;
+        }
+
+        .card-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #ffc107;
+            line-height: 1.3;
+        }
+
+        .card-category {
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 3px 10px;
+            border-radius: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            white-space: nowrap;
+        }
+
+        .cat-general { background: rgba(96, 165, 250, 0.2); color: #93c5fd; }
+        .cat-medical { background: rgba(248, 113, 113, 0.2); color: #fca5a5; }
+        .cat-science { background: rgba(192, 132, 252, 0.2); color: #d8b4fe; }
+        .cat-open-access { background: rgba(74, 222, 128, 0.2); color: #86efac; }
+        .cat-law { background: rgba(251, 191, 36, 0.2); color: #fcd34d; }
+        .cat-social { background: rgba(244, 114, 182, 0.2); color: #f9a8d4; }
+        .cat-arts { background: rgba(167, 139, 250, 0.2); color: #c4b5fd; }
+        .cat-engineering { background: rgba(56, 189, 248, 0.2); color: #7dd3fc; }
+        .cat-business { background: rgba(52, 211, 153, 0.2); color: #6ee7b7; }
+
+        .card-description {
+            font-size: 0.88rem;
+            color: rgba(226, 232, 240, 0.7);
+            line-height: 1.6;
+            margin-bottom: 18px;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .card-description mark {
+            background: rgba(255, 193, 7, 0.3);
+            color: #ffc107;
+            padding: 0 3px;
+            border-radius: 3px;
+        }
+
+        /* Credential buttons */
+        .cred-row {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+
+        .cred-btn {
+            flex: 1;
+            padding: 8px 10px;
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 8px;
+            color: rgba(255,255,255,0.6);
+            font-size: 0.75rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .cred-btn:hover {
+            background: rgba(255,255,255,0.15);
+            color: #fff;
+            border-color: rgba(255,193,7,0.4);
+        }
+
+        .visit-btn {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background: rgba(220, 53, 69, 0.85);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-align: center;
+            border: 1px solid rgba(220, 53, 69, 0.5);
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .visit-btn:hover {
+            background: rgba(220, 53, 69, 1);
+            box-shadow: 0 5px 20px rgba(220, 53, 69, 0.4);
+            transform: scale(1.02);
+        }
+
+        /* No results */
+        .no-results {
+            text-align: center;
+            padding: 60px 20px;
+            display: none;
+        }
+
+        .no-results .emoji {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .no-results h3 {
+            color: #fff;
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+        }
+
+        .no-results p {
+            color: rgba(255,255,255,0.4);
+        }
+
+        /* Credential Popup */
+        .cred-popup {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background: rgba(0, 32, 144, 0.95);
+            color: #fff;
+            padding: 14px 22px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            transform: translateY(120px);
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 1000;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border: 1px solid rgba(255,193,7,0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .cred-popup.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 25px 20px;
+            background: rgba(0, 0, 0, 0.3);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 20px;
+        }
+
+        .footer-text {
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 0.8rem;
+            line-height: 1.8;
+        }
+
+        .footer-brand {
+            color: #ffc107;
+            font-weight: 600;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: rgba(0,0,0,0.2); }
+        ::-webkit-scrollbar-thumb { background: rgba(255,193,7,0.5); border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: rgba(255,193,7,0.7); }
+
+        /* Fade in animation */
+        .fade-in {
+            animation: fadeIn 0.5s ease forwards;
+            opacity: 0;
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            .header-left {
+                flex-direction: column;
+            }
+            .header-text h1 {
+                font-size: 1.2rem;
+            }
+            .search-bar-section {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .search-box {
+                max-width: 100%;
+            }
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+<!-- Header -->
+<header class="header">
+<div class="header-content">
+<div class="header-left">
+<img alt="IUO Logo" class="university-logo" src="index_files/image002.jpg"/>
+<div class="header-text">
+<h1>IGBINEDION UNIVERSITY, OKADA</h1>
+<p>Directory of Electronic Databases &amp; Web Resources</p>
+</div>
+</div>
+<a class="logout-btn" href="index.php?logout=1">
+<svg fill="none" height="16" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="16">
+<path d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+                Logout
+            </a>
+</div>
+<div class="marquee-container">
+<span class="marquee-text">🎓 IUO Electronic Library — Access World-Class Academic Resources — ProQuest • EBSCOhost • ScienceDirect • JSTOR • Research4Life (AGORA • HINARI • OARE • GOALI • ARDI) • IEEE Xplore • SpringerLink • Wiley • Web of Science • PubMed • 50+ Databases 🎓</span>
+</div>
+</header>
+<!-- Search & Filter -->
+<div class="search-bar-section">
+<div class="search-box">
+<span class="search-icon">🔍</span>
+<input id="searchInput" placeholder="Search databases by name or description..." type="text"/>
+</div>
+<div style="display:flex;align-items:center;flex-wrap:wrap;gap:10px;">
+<div class="filter-buttons" id="filterContainer">
+<button class="filter-btn active" data-category="all">All</button>
+<button class="filter-btn" data-category="general">General</button>
+<button class="filter-btn" data-category="medical">Medical</button>
+<button class="filter-btn" data-category="science">Science</button>
+<button class="filter-btn" data-category="law">Law</button>
+<button class="filter-btn" data-category="engineering">Engineering</button>
+<button class="filter-btn" data-category="business">Business</button>
+<button class="filter-btn" data-category="social">Social Sciences</button>
+<button class="filter-btn" data-category="open-access">Open Access</button>
+</div>
+<span class="count-display">Showing <span id="countDisplay">40</span> resources</span>
+</div>
+</div>
+<!-- Main Content -->
+<main class="main-content">
+<div class="cards-grid" id="resourcesGrid">
+<div class="resource-card fade-in" style="animation-delay: 0s">
+<div class="card-image-wrap">
+<span class="access-badge badge-login">🔐 Login</span>
+<img alt="ProQuest" loading="lazy" onerror="this.style.display='none'; this.parentElement.innerHTML += '&lt;div style='font-size:2.5rem;font-weight:700;color:rgba(255,255,255,0.2)'&gt;P&lt;/div&gt;'" src="index_files/proquest.jpg"/>
+</div>
+<div class="card-body">
+<div class="card-header-row">
+<div class="card-title">ProQuest</div>
+<span class="card-category cat-general">General</span>
+</div>
+<p class="card-description">One of the world's largest collections of journals, ebooks, primary sources, dissertations, news and video. Simplifies research for students and researchers across all disciplines.</p>
+<div class="cred-row">
+<button class="cred-btn" onclick="copyToClipboard('NQ65L48SDJ', 'Username')">
+<svg fill="none" height="14" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="14">
+<path d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+                            Copy User
+                        </button>
+<button class="cred-btn" onclick="copyToClipboard('468FGYA@', 'Password')">
+<svg fill="none" height="14" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="14">
+<path d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+                            Copy Pass
+                        </button>
+</div>
+<a class="visit-btn" href="https://explore.proquest.com/login?accountid=193930" rel="noopener noreferrer" target="_blank">Visit &amp; Login</a>
+</div>
+</div>
+<div class="resource-card fade-in" style="animation-delay: 0.05s">
+<div class="card-image-wrap">
+<span class="access-badge badge-login">🔐 Login</span>
+<img alt="EBSCOhost" loading="lazy" onerror="this.style.display='none'; this.parentElement.innerHTML += '&lt;div style='font-size:2.5rem;font-weight:700;color:rgba(255,255,255,0.2)'&gt;E&lt;/div&gt;'" src="index_files/ebscohost.jpg"/>
+</div>
+<div class="card-body">
+<div class="card-header-row">
+<div class="card-title">EBSCOhost</div>
+<span class="card-category cat-general">General</span>
+</div>
+<p class="card-description">A leading database provider offering access to journals, magazines, e-books and more across all academic disciplines. Features advanced search, citation tools, and full-text access.</p>
+<div class="cred-row">
+<button class="cred-btn" onclick="copyToClipboard('Olabisi11', 'Username')">
+<svg fill="none" height="14" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="14">
+<path d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+                            Copy User
+                        </button>
+<button class="cred-btn" onclick="copyToClipboard('National@1960!!!', 'Password')">
+<svg fill="none" height="14" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="14">
+<path d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+                            Copy Pass
+                        </button>
+</div>
+<a class="visit-btn" href="https://search-ebscohost-com.wikipedialibrary.idm.oclc.org/webauth/Community.aspx?code=a28d617441df&amp;ref=https%3a%2f%2fwikipedialibrary.wmflabs.org%2f&amp;ugt=62E771363C2635573736353632553E9225E362D36713659363E323E335133603&amp;authtype=ip&amp;stsug=AhUPE_rCbUX8hDAp6kdaDGAMFgmY1r2sxbZ4VHnWsm66ob9ZxQcJn4DJxk3jQdXnoTUvkVS_wx3AXrQCnseuTLiusOx0Y9X3YA_bsviO0DnW0CE_L6J0-d6kIRHIF53E60XLtRgPi0E2RrevngI1hv8fCbV62z3DK0V5XoNmuuzh5Io&amp;IsAdminMobile=N&amp;encid=320771C67CC675C777C675C672C57CC735133203376335533333&amp;selectServicesToken=AxVDL7tMujsO8PobFY9FopXG6o-hBsjo87DyWtmLYO-Eh1iG6jMLFnVeqnCUVdLF9_HvnHm-XT0CMA1ubtWr3Q9uAO6_FGgMWNGwo8wtGBzO0FYYY3lUgcdlaYrUkdxFZLaS6ByCzb1B14aOVrX6NClMbGsNN5rCrPhfnzHQK_6_6IJpIIULkvA7Dlu-OJYuVI8K8-EAmOpxZnVVbpiipgT8B6TzEZfHZsBTsJzyeCNEbE29w6pswIIj8ZQCdLKKwHF9wFjkmhFvajD0mjuWrKbLsywBajug4xgSSZOwZxZtFCI" rel="noopener noreferrer" target="_blank">Visit &amp; Login</a>
+</div>
+</div>
+<div class="resource-card fade-in" style="animation-delay: 0.1s">
+<div class="card-image-wrap">
+<span class="access-badge badge-login">🔐 Login</span>
+<img alt="WIKIPEDIA LIBRARY" loading="lazy" onerror="this.style.display='none'; this.parentElement.innerHTML += '&lt;div style='font-size:2.5rem;font-weight:700;color:rgba(255,255,255,0.2)'&gt;W&lt;/div&gt;'" src="index_files/wikilib.jpg"/>
+</div>
+<div class="card-body">
+<div class="card-header-row">
+<div class="card-title">WIKIPEDIA LIBRARY</div>
+<span class="card-category cat-general">General</span>
+</div>
+<p class="card-description">This plaform contains more than 100 of the world's top subscription-only databases, with content in 32 languages, free for Wikipedians of all backgrounds</p>
+<div class="cred-row">
+<button class="cred-btn" onclick="copyToClipboard('Olabisi11', 'Username')">
+<svg fill="none" height="14" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="14">
+<path d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+                            Copy User
+                        </button>
+<button class="cred-btn" onclick="copyToClipboard('National@1960!!!', 'Password')">
+<svg fill="none" height="14" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="14">
+<path d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+                            Copy Pass
+                        </button>
+</div>
+<a class="visit-btn" href="https://wikipedialibrary.wmflabs.org/" rel="noopener noreferrer" target="_blank">Visit &amp; Login</a>
+</div>
+</div>
+<div class="resource-card fade-in" style="animation-delay: 0.15000000000000002s">
+<div class="card-image-wrap">
+<span class="access-badge badge-login">🔐 Login</span>
+<img alt="JSTOR" loading="lazy" onerror="this.style.display='none'; this.parentElement.innerHTML += '&lt;div style='font-size:2.5rem;font-weight:700;color:rgba(255,255,255,0.2)'&gt;J&lt;/div&gt;'" src="index_files/image102.jpg"/>
+</div>
+<div class="card-body">
+<div class="card-header-row">
+<div class="card-title">JSTOR</div>
+<span class="card-category cat-general">General</span>
+</div>
+<p class="card-description">A digital library with thousands of academic journals, books, and primary sources across disciplines. IP-regulated on campus; off-campus access via token method requiring individual registration.</p>
+<div class="cred-row">
+<button class="cred-btn" onclick="copyToClipboard('addjimedu@gmail.com', 'Username')">
+<svg fill="none" height="14" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="14">
+<path d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+                            Copy User
+                        </button>
+<button class="cred-btn" onclick="copyToClipboard('123library123', 'Password')">
+<svg fill="none" height="14" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="14">
+<path d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+                            Copy Pass
+                        </button>
+</div>
+<a class="visit-btn" href="https://www.jstor.org/" rel="noopener noreferrer" target="_blank">Visit &amp; Login</a>
+</div>
+</div>
+<div class="resource-card fade-in" style="animation-delay: 0.2s">
+<div class="card-image-wrap">
+<span class="access-badge badge-login">🔐 Login</span>
+<img alt="ScienceDirect" loading="lazy" onerror="this.style.display='none'; this.parentElement.innerHTML += '&lt;div style='font-size:2.5rem;font-weight:700;color:rgba(255,255,255,0.2)'&gt;S&lt;/div&gt;'" src="index_files/image034.jpg"/>
+</div>
+<div class="card-body">
+<div class="card-header-row">
+<div class="card-title">ScienceDirect</div>
+<span class="card-category cat-science">Science</span>
+</div>
+<p class="card-description">Provides subscription-based access to a large database of scientific and medical research. Hosts over 12 million pieces of content from 3,500 academic journals and 34,000 e-books.</p>
+<div class="cred-row">
+<button class="cred-btn" onclick="copyToClipboard('library@addjimconsult.com.ng', 'Username')">
+<svg fill="none" height="14" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="14">
+<path d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+                            Copy User
+                        </button>
+<button class="cred-btn" onclick="copyToClipboard('123library123', 'Password')">
+<svg fill="none" height="14" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="14">
+<path d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+                            Copy Pass
+                        </button>
+</div>
+<a class="visit-btn" href="https://www.sciencedirect.com/" rel="noopener noreferrer" target="_blank">Visit &amp; Login</a>
+</div>
+</div>
+<div class="resource-card fade-in" style="animation-delay: 0.25s">
+<div class="card-image-wrap">
+<span class="access-badge badge-login">🔐 Login</span>
+<img alt="Research4Life — AGORA" loading="lazy" onerror="this.style.display='none'; this.parentElement.innerHTML += '&lt;div style='font-size:2.5rem;font-weight:700;color:rgba(255,255,255,0.2)'&gt;R&lt;/div&gt;'" src="index_files/image012.jpg"/>
+</div>
+<div class="card-body">
+<div class="card-header-row">
+<div class="card-title">Research4Life — AGORA</div>
+<span class="card-category cat-science">Science</span>
+</div>
+<p class="card-description">Access to Research in Agriculture. Provides over 3,000 journals to institutions in developing countries in food, agriculture, environmental sciences and related social sciences.</p>
+<div class="cred-row">
+<button class="cred-btn" onclick="copyToClipboard('NIE167', 'Username')">
+<svg fill="none" height="14" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="14">
+<path d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+                            Copy User
+                        </button>
+<button class="cred-btn" onclick="copyToClipboard('8h0fD7EM', 'Password')">
+<svg fill="none" height="14" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="14">
+<path d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+                            Copy Pass
+                        </button>
+</div>
+<a class="visit-btn" href="http://login.research4life.org/tacgw/login.cshtml" rel="noopener noreferrer" target="_blank">Visit &amp; Login</a>
+</div>
+</div>
+<div class="resource-card fade-in" style="animation-delay: 0.30000000000000004s">
+<div class="card-image-wrap">
+<span class="access-badge badge-login">🔐 Login</span>
+<img alt="Research4Life — HINARI" loading="lazy" onerror="this.style.display='none'; this.parentElement.innerHTML += '&lt;div style='font-size:2.5rem;font-weight:700;color:rgba(255,255,255,0.2)'&gt;R&lt;/div&gt;'" src="index_files/image018.jpg"/>
+</div>
+<div class="card-body">
+<div class="card-header-row">
+<div class="card-title">Research4Life — HINARI</div>
+<span class="card-category cat-medical">Medical</span>
+</div>
+<p class="card-description">Health InterNetwork Access to Research Initiative. Up to 16,000 journals and 63,000 e-books available to health institutions in more than 120 countries.</p>
+<div class="cred-row">
+<button class="cred-btn" onclick="copyToClipboard('NIE167', 'Username')">
+<svg fill="none" height="14" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="14">
+<path d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+                            Copy User
+                        </button>
+<button class="cred-btn" onclick="copyToClipboard('8h0fD7EM', 'Password')">
+<svg fill="none" height="14" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="14">
+<path d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+                            Copy Pass
+                        </button>
+</div>
+<a class="visit-btn" href="http://login.research4life.org/tacgw/login.cshtml" rel="noopener noreferrer" target="_blank">Visit &amp; Login</a>
+</div>
+</div>
+<div class="resource-card fade-in" style="animation-delay: 0.35000000000000003s">
+<div class="card-image-wrap">
+<span class="access-badge badge-login">🔐 Login</span>
+<img alt="Research4Life — OARE" loading="lazy" onerror="this.style.display='none'; this.parentElement.innerHTML += '&lt;div style='font-size:2.5rem;font-weight:700;color:rgba(255,255,255,0.2)'&gt;R&lt;/div&gt;'" src="index_files/image016.jpg"/>
+</div>
+<div class="card-body">
+<div class="card-header-row">
+<div class="card-title">Research4Life — OARE</div>
+<span class="card-category cat-science">Science</span>
+</div>
+<p class="card-description">Online Access to Research in the Environment. Enables access to collections of environmental science research for developing countries worldwide.</p>
+<div class="cred-row">
+<button class="cred-btn" onclick="copyToClipboard('NIE167', 'Username')">
+<svg fill="none" height="14" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="14">
+<path d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+                            Copy User
+                        </button>
+<button class="cred-btn" onclick="copyToClipboard('8h0fD7EM', 'Password')">
+<svg fill="none" height="14" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="14">
+<path d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+                            Copy Pass
+                        </button>
+</div>
+<a class="visit-btn" href="http://login.research4life.org/tacgw/login.cshtml" rel="noopener noreferrer" target="_blank">Visit &amp; Login</a>
+</div>
+</div>
+<div class="resource-card fade-in" style="animation-delay: 0.4s">
+<div class="card-image-wrap">
+<span class="access-badge badge-login">🔐 Login</span>
+<img alt="Research4Life — GOALI" loading="lazy" onerror="this.style.display='none'; this.parentElement.innerHTML += '&lt;div style='font-size:2.5rem;font-weight:700;color:rgba(255,255,255,0.2)'&gt;R&lt;/div&gt;'" src="index_files/image022.jpg"/>
+</div>
+<div class="card-body">
+<div class="card-header-row">
+<div class="card-title">Research4Life — GOALI</div>
+<span class="card-category cat-law">Law</span>
+</div>
+<p class="card-description">Global Online Access to Legal Information. Provides access to academic and professional peer-reviewed journals and publications in selected areas of law.</p>
+<div class="cred-row">
+<button class="cred-btn" onclick="copyToClipboard('NIE167', 'Username')">
+<svg fill="none" height="14" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="14">
+<path d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+                            Copy User
+                        </button>
+<button class="cred-btn" onclick="copyToClipboard('8h0fD7EM', 'Password')">
+<svg fill="none" height="14" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="14">
+<path d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+                            Copy Pass
+                        </button>
+</div>
+<a class="visit-btn" href="http://goali.ilo.org/content/en/journals.php" rel="noopener noreferrer" target="_blank">Visit &amp; Login</a>
+</div>
+</div>
+<div class="resource-card fade-in" style="animation-delay: 0.45s">
+<div class="card-image-wrap">
+<span class="access-badge badge-login">🔐 Login</span>
+<img alt="Research4Life — ARDI" loading="lazy" onerror="this.style.display='none'; this.parentElement.innerHTML += '&lt;div style='font-size:2.5rem;font-weight:700;color:rgba(255,255,255,0.2)'&gt;R&lt;/div&gt;'" src="index_files/image020.jpg"/>
+</div>
+<div class="card-body">
+<div class="card-header-row">
+<div class="card-title">Research4Life — ARDI</div>
+<span class="card-category cat-general">General</span>
+</div>
+<p class="card-description">Access to Research for Development and Innovation. Over 100 publishers providing access to around 30,000 journals, books, and reference works for developing countries.</p>
+<div class="cred-row">
+<button class="cred-btn" onclick="copyToClipboard('NIE167', 'Username')">
+<svg fill="none" height="14" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="14">
+<path d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+                            Copy User
+                        </button>
+<button class="cred-btn" onclick="copyToClipboard('8h0fD7EM', 'Password')">
+<svg fill="none" height="14" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="14">
+<path d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+                            Copy Pass
+                        </button>
+</div>
+<a class="visit-btn" href="https://login.research4life.org/tacgw/AppPortal/" rel="noopener noreferrer" target="_blank">Visit &amp; Login</a>
+</div>
+</div>
+<div class="resource-card fade-in" style="animation-delay: 0.5s">
+<div class="card-image-wrap">
+<span class="access-badge badge-open">Open</span>
+<img alt="PubMed" loading="lazy" onerror="this.style.display='none'; this.parentElement.innerHTML += '&lt;div style='font-size:2.5rem;font-weight:700;color:rgba(255,255,255,0.2)'&gt;P&lt;/div&gt;'" src="index_files/pubmed.jpg"/>
+</div>
+<div class="card-body">
+<div class="card-header-row">
+<div class="card-title">PubMed</div>
+<span class="card-category cat-medical">Medical</span>
+</div>
+<p class="card-description">A free search engine accessing primarily the MEDLINE database of references and abstracts on life sciences and biomedical topics. Maintained by the NLM at the NIH.</p>
+<a class="visit-btn" href="https://pubmed.ncbi.nlm.nih.gov/" rel="noopener noreferrer" target="_blank">Visit Now</a>
+</div>
+</div>
+<div class="resource-card fade-in" style="animation-delay: 0.55s">
+<div class="card-image-wrap">
+<span class="access-badge badge-open">Open</span>
+<img alt="IEEE Xplore" loading="lazy" onerror="this.style.display='none'; this.parentElement.innerHTML += '&lt;div style='font-size:2.5rem;font-weight:700;color:rgba(255,255,255,0.2)'&gt;I&lt;/div&gt;'" src="index_files/ieee.jpg"/>
+</div>
+<div class="card-body">
+<div class="card-header-row">
+<div class="card-title">IEEE Xplore</div>
+<span class="card-category cat-engineering">Engineering</span>
+</div>
+<p class="card-description">A research database for discovery and access to journal articles, conference proceedings, technical standards, and related materials on computer science, electrical engineering and electronics.</p>
+<a class="visit-btn" href="https://ieeexplore.ieee.org/" rel="noopener noreferrer" target="_blank">Visit Now</a>
+</div>
+</div>
+<div class="resource-card fade-in" style="animation-delay: 0.6000000000000001s">
+<div class="card-image-wrap">
+<span class="access-badge badge-open">Open</span>
+<img alt="SpringerLink" loading="lazy" onerror="this.style.display='none'; this.parentElement.innerHTML += '&lt;div style='font-size:2.5rem;font-weight:700;color:rgba(255,255,255,0.2)'&gt;S&lt;/div&gt;'" src="index_files/springer.jpg"/>
+</div>
+<div class="card-body">
+<div class="card-header-row">
+<div class="card-title">SpringerLink</div>
+<span class="card-category cat-science">Science</span>
+</div>
+<p class="card-description">Provides access to millions of scientific documents from journals, books, series, protocols, reference works and proceedings in science, technology and medicine.</p>
+<a class="visit-btn" href="https://link.springer.com/" rel="noopener noreferrer" target="_blank">Visit Now</a>
+</div>
+</div>
+<div class="resource-card fade-in" style="animation-delay: 0.65s">
+<div class="card-image-wrap">
+<span class="access-badge badge-open">Open</span>
+<img alt="Wiley Online Library" loading="lazy" onerror="this.style.display='none'; this.parentElement.innerHTML += '&lt;div style='font-size:2.5rem;font-weight:700;color:rgba(255,255,255,0.2)'&gt;W&lt;/div&gt;'" src="index_files/wiley.jpg"/>
+</div>
+<div class="card-body">
+<div class="card-header-row">
+<div class="card-title">Wiley Online Library</div>
+<span class="card-category cat-science">Science</span>
+</div>
+<p class="card-description">A multidisciplinary collection of online resources covering life, health, physical, and social sciences and the humanities. Hosts over 1,600 journals and 21,000 books.</p>
+<a class="visit-btn" href="https://onlinelibrary.wiley.com/" rel="noopener noreferrer" target="_blank">Visit Now</a>
+</div>
+</div>
+<div class="resource-card fade-in" style="animation-delay: 0.7000000000000001s">
+<div class="card-image-wrap">
+<span class="access-badge badge-open">Open</span>
+<img alt="Cambridge Core" loading="lazy" onerror="this.style.display='none'; this.parentElement.innerHTML += '&lt;div style='font-size:2.5rem;font-weight:700;color:rgba(255,255,255,0.2)'&gt;C&lt;/div&gt;'" src="index_files/cambridge.jpg"/>
+</div>
+<div class="card-body">
+<div class="card-header-row">
+<div class="card-title">Cambridge Core</div>
+<span class="card-category cat-general">General</span>
+</div>
+<p class="card-description">The home of academic content from Cambridge University Press. Provides access to over 1.2 million journal articles and 36,000+ books across all academic disciplines.</p>
+<a class="visit-btn" href="https://www.cambridge.org/core/" rel="noopener noreferrer" target="_blank">Visit Now</a>
+</div>
+</div>
+<div class="resource-card fade-in" style="animation-delay: 0.75s">
+<div class="card-image-wrap">
+<span class="access-badge badge-login">🔐 Login</span>
+<img alt="SAGE Journals" loading="lazy" onerror="this.style.display='none'; this.parentElement.innerHTML += '&lt;div style='font-size:2.5rem;font-weight:700;color:rgba(255,255,255,0.2)'&gt;S&lt;/div&gt;'" src="index_files/sage.jpg"/>
+</div>
+<div class="card-body">
+<div class="card-header-row">
+<div class="card-title">SAGE Journals</div>
+<span class="card-category cat-social">Social Sciences</span>
+</div>
+<p class="card-description">A leading independent academic publisher of journals, books, and electronic media. SAGE publishes over 1,000 journals spanning the humanities, social sciences, science, technology, and medicine.</p>
+<div class="cred-row">
+<button class="cred-btn" onclick="copyToClipboard('addjimedu@gmail.com', 'Username')">
+<svg fill="none" height="14" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="14">
+<path d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+                            Copy User
+                        </button>
+<button class="cred-btn" onclick="copyToClipboard('123Library$123', 'Password')">
+<svg fill="none" height="14" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="14">
+<path d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+                            Copy Pass
+                        </button>
+</div>
+<a class="visit-btn" href="https://journals.sagepub.com/" rel="noopener noreferrer" target="_blank">Visit &amp; Login</a>
+</div>
+</div>
+<div class="resource-card fade-in" style="animation-delay: 0.8s">
+<div class="card-image-wrap">
+<span class="access-badge badge-open">Open</span>
+<img alt="Web of Science" loading="lazy" onerror="this.style.display='none'; this.parentElement.innerHTML += '&lt;div style='font-size:2.5rem;font-weight:700;color:rgba(255,255,255,0.2)'&gt;W&lt;/div&gt;'" src="index_files/webofscience.jpg"/>
+</div>
+<div class="card-body">
+<div class="card-header-row">
+<div class="card-title">Web of Science</div>
+<span class="card-category cat-general">General</span>
+</div>
+<p class="card-description">A comprehensive research platform providing access to the world's leading citation databases. Covers over 21,000 journals across 250+ disciplines with powerful analytics tools.</p>
+<a class="visit-btn" href="https://www.webofscience.com/" rel="noopener noreferrer" target="_blank">Visit Now</a>
+</div>
+</div>
+<div class="resource-card fade-in" style="animation-delay: 0.8500000000000001s">
+<div class="card-image-wrap">
+<span class="access-badge badge-open">Open</span>
+<img alt="Google Scholar" loading="lazy" onerror="this.style.display='none'; this.parentElement.innerHTML += '&lt;div style='font-size:2.5rem;font-weight:700;color:rgba(255,255,255,0.2)'&gt;G&lt;/div&gt;'" src="index_files/googlescholar.jpg"/>
+</div>
+<div class="card-body">
+<div class="card-header-row">
+<div class="card-title">Google Scholar</div>
+<span class="card-category cat-general">General</span>
+</div>
+<p class="card-description">A freely accessible web search engine that indexes the full text or metadata of scholarly literature across an array of publishing formats and disciplines.</p>
+<a class="visit-btn" href="https://scholar.google.com/" rel="noopener noreferrer" target="_blank">Visit Now</a>
+</div>
+</div>
+<div class="resource-card fade-in" style="animation-delay: 0.9s">
+<div class="card-image-wrap">
+<span class="access-badge badge-open">Open</span>
+<img alt="PubMed Central" loading="lazy" onerror="this.style.display='none'; this.parentElement.innerHTML += '&lt;div style='font-size:2.5rem;font-weight:700;color:rgba(255,255,255,0.2)'&gt;P&lt;/div&gt;'" src="index_files/pubmedcentral.jpg"/>
+</div>
+<div class="card-body">
+<div class="card-header-row">
+<div class="card-title">PubMed Central</div>
+<span class="card-category cat-medical">Medical</span>
+</div>
+<p class="card-description">A free full-text archive of biomedical and life sciences journal literature at the U.S. National Institutes of Health's National Library of Medicine.</p>
+<a class="visit-btn" href="https://www.ncbi.nlm.nih.gov/pmc/" rel="noopener noreferrer" target="_blank">Visit Now</a>
+</div>
+</div>
+<div class="resource-card fade-in" style="animation-delay: 0.9500000000000001s">
+<div class="card-image-wrap">
+<span class="access-badge badge-open">Open</span>
+<img alt="Cochrane Library" loading="lazy" onerror="this.style.display='none'; this.parentElement.innerHTML += '&lt;div style='font-size:2.5rem;font-weight:700;color:rgba(255,255,255,0.2)'&gt;C&lt;/div&gt;'" src="index_files/cochrane.jpg"/>
+</div>
+<div class="card-body">
+<div class="card-header-row">
+<div class="card-title">Cochrane Library</div>
+<span class="card-category cat-medical">Medical</span>
+</div>
+<p class="card-description">A collection of databases containing high-quality, independent evidence to inform healthcare decision-making. Includes Cochrane Reviews, trials, and clinical answers.</p>
+<a class="visit-btn" href="https://www.cochranelibrary.com/" rel="noopener noreferrer" target="_blank">Visit Now</a>
+</div>
+</div>
+<div class="resource-card fade-in" style="animation-delay: 1s">
+<div class="card-image-wrap">
+<span class="access-badge badge-open">Open</span>
+<img alt="Embase" loading="lazy" onerror="this.style.display='none'; this.parentElement.innerHTML += '&lt;div style='font-size:2.5rem;font-weight:700;color:rgba(255,255,255,0.2)'&gt;E&lt;/div&gt;'" src="index_files/embase.jpg"/>
+</div>
+<div class="card-body">
+<div class="card-header-row">
+<div class="card-title">Embase</div>
+<span class="card-category cat-medical">Medical</span>
+</div>
+<p class="card-description">A biomedical and pharmacological database containing over 32 million records. Strong focus on drug and pharmaceutical research with extensive European coverage.</p>
+<a class="visit-btn" href="https://www.embase.com/" rel="noopener noreferrer" target="_blank">Visit Now</a>
+</div>
+</div>
+<div class="resource-card fade-in" style="animation-delay: 1.05s">
+<div class="card-image-wrap">
+<span class="access-badge badge-open">Open</span>
+<img alt="PsycINFO" loading="lazy" onerror="this.style.display='none'; this.parentElement.innerHTML += '&lt;div style='font-size:2.5rem;font-weight:700;color:rgba(255,255,255,0.2)'&gt;P&lt;/div&gt;'" src="index_files/psycinfo.jpg"/>
+</div>
+<div class="card-body">
+<div class="card-header-row">
+<div class="card-title">PsycINFO</div>
+<span class="card-category cat-social">Social Sciences</span>
+</div>
+<p class="card-description">The premier abstracting and indexing database covering the scholarly literature in the psychological, social, behavioral, and health sciences. Contains over 4 million records.</p>
+<a class="visit-btn" href="https://www.apa.org/pubs/databases/psycinfo" rel="noopener noreferrer" target="_blank">Visit Now</a>
+</div>
+</div>
+<div class="resource-card fade-in" style="animation-delay: 1.1s">
+<div class="card-image-wrap">
+<span class="access-badge badge-open">Open</span>
+<img alt="ACM Digital Library" loading="lazy" onerror="this.style.display='none'; this.parentElement.innerHTML += '&lt;div style='font-size:2.5rem;font-weight:700;color:rgba(255,255,255,0.2)'&gt;A&lt;/div&gt;'" src="index_files/acm.jpg"/>
+</div>
+<div class="card-body">
+<div class="card-header-row">
+<div class="card-title">ACM Digital Library</div>
+<span class="card-category cat-engineering">Engineering</span>
+</div>
+<p class="card-description">The most comprehensive collection of full-text articles and bibliographic records in computing and information technology. Covers journals, magazines, transactions, and proceedings.</p>
+<a class="visit-btn" href="https://dl.acm.org/" rel="noopener noreferrer" target="_blank">Visit Now</a>
+</div>
+</div>
+<div class="resource-card fade-in" style="animation-delay: 1.1500000000000001s">
+<div class="card-image-wrap">
+<span class="access-badge badge-login">🔐 Login</span>
+<img alt="Emerald Insight" loading="lazy" onerror="this.style.display='none'; this.parentElement.innerHTML += '&lt;div style='font-size:2.5rem;font-weight:700;color:rgba(255,255,255,0.2)'&gt;E&lt;/div&gt;'" src="index_files/emerald.jpg"/>
+</div>
+<div class="card-body">
+<div class="card-header-row">
+<div class="card-title">Emerald Insight</div>
+<span class="card-category cat-business">Business</span>
+</div>
+<p class="card-description">A global publisher linking research and practice to the benefit of society. Publishes over 300 journals and 2,500 books in business, management, and social sciences.</p>
+<div class="cred-row">
+<button class="cred-btn" onclick="copyToClipboard('addjimedu@gmail.com', 'Username')">
+<svg fill="none" height="14" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="14">
+<path d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+                            Copy User
+                        </button>
+<button class="cred-btn" onclick="copyToClipboard('123library.123', 'Password')">
+<svg fill="none" height="14" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="14">
+<path d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+                            Copy Pass
+                        </button>
+</div>
+<a class="visit-btn" href="https://www.emerald.com/insight/" rel="noopener noreferrer" target="_blank">Visit &amp; Login</a>
+</div>
+</div>
+<div class="resource-card fade-in" style="animation-delay: 1.2000000000000002s">
+<div class="card-image-wrap">
+<span class="access-badge badge-open">Open</span>
+<img alt="DOAJ" loading="lazy" onerror="this.style.display='none'; this.parentElement.innerHTML += '&lt;div style='font-size:2.5rem;font-weight:700;color:rgba(255,255,255,0.2)'&gt;D&lt;/div&gt;'" src="index_files/doaj.jpg"/>
+</div>
+<div class="card-body">
+<div class="card-header-row">
+<div class="card-title">DOAJ</div>
+<span class="card-category cat-open-access">Open Access</span>
+</div>
+<p class="card-description">The Directory of Open Access Journals is a community-curated online directory that indexes and provides access to high quality, open access, peer-reviewed journals.</p>
+<a class="visit-btn" href="https://doaj.org/" rel="noopener noreferrer" target="_blank">Visit Now</a>
+</div>
+</div>
+<div class="resource-card fade-in" style="animation-delay: 1.25s">
+<div class="card-image-wrap">
+<span class="access-badge badge-open">Open</span>
+<img alt="arXiv" loading="lazy" onerror="this.style.display='none'; this.parentElement.innerHTML += '&lt;div style='font-size:2.5rem;font-weight:700;color:rgba(255,255,255,0.2)'&gt;a&lt;/div&gt;'" src="index_files/arxiv.jpg"/>
+</div>
+<div class="card-body">
+<div class="card-header-row">
+<div class="card-title">arXiv</div>
+<span class="card-category cat-open-access">Open Access</span>
+</div>
+<p class="card-description">An open-access repository of electronic preprints and postprints approved for publication after moderation. Covers physics, mathematics, computer science, and quantitative biology.</p>
+<a class="visit-btn" href="https://arxiv.org/" rel="noopener noreferrer" target="_blank">Visit Now</a>
+</div>
+</div>
+<div class="resource-card fade-in" style="animation-delay: 1.3s">
+<div class="card-image-wrap">
+<span class="access-badge badge-login">🔐 Login</span>
+<img alt="SSRN" loading="lazy" onerror="this.style.display='none'; this.parentElement.innerHTML += '&lt;div style='font-size:2.5rem;font-weight:700;color:rgba(255,255,255,0.2)'&gt;S&lt;/div&gt;'" src="index_files/ssrn.jpg"/>
+</div>
+<div class="card-body">
+<div class="card-header-row">
+<div class="card-title">SSRN</div>
+<span class="card-category cat-social">Social Sciences</span>
+</div>
+<p class="card-description">A multi-disciplinary online research community devoted to the rapid worldwide dissemination of research. Covers social sciences, humanities, and life sciences.</p>
+<div class="cred-row">
+<button class="cred-btn" onclick="copyToClipboard('IUO_SSRN', 'Username')">
+<svg fill="none" height="14" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="14">
+<path d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+                            Copy User
+                        </button>
+<button class="cred-btn" onclick="copyToClipboard('SSRN_Social#2026', 'Password')">
+<svg fill="none" height="14" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="14">
+<path d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+                            Copy Pass
+                        </button>
+</div>
+<a class="visit-btn" href="https://www.ssrn.com/" rel="noopener noreferrer" target="_blank">Visit &amp; Login</a>
+</div>
+</div>
+<div class="resource-card fade-in" style="animation-delay: 1.35s">
+<div class="card-image-wrap">
+<span class="access-badge badge-open">Open</span>
+<img alt="Directory of Open Access Journals" loading="lazy" onerror="this.style.display='none'; this.parentElement.innerHTML += '&lt;div style='font-size:2.5rem;font-weight:700;color:rgba(255,255,255,0.2)'&gt;D&lt;/div&gt;'" src="index_files/doaj.jpg"/>
+</div>
+<div class="card-body">
+<div class="card-header-row">
+<div class="card-title">Directory of Open Access Journals</div>
+<span class="card-category cat-open-access">Open Access</span>
+</div>
+<p class="card-description">A community-curated online directory that indexes and provides access to high quality, open access, peer-reviewed journals across all disciplines.</p>
+<a class="visit-btn" href="https://doaj.org/" rel="noopener noreferrer" target="_blank">Visit Now</a>
+</div>
+</div>
+<div class="resource-card fade-in" style="animation-delay: 1.4000000000000001s">
+<div class="card-image-wrap">
+<span class="access-badge badge-open">Open</span>
+<img alt="CORE" loading="lazy" onerror="this.style.display='none'; this.parentElement.innerHTML += '&lt;div style='font-size:2.5rem;font-weight:700;color:rgba(255,255,255,0.2)'&gt;C&lt;/div&gt;'" src="index_files/core.jpg"/>
+</div>
+<div class="card-body">
+<div class="card-header-row">
+<div class="card-title">CORE</div>
+<span class="card-category cat-open-access">Open Access</span>
+</div>
+<p class="card-description">The world's largest collection of open access research papers. Aggregates and enriches open access research papers from repositories and journals worldwide.</p>
+<a class="visit-btn" href="https://core.ac.uk/" rel="noopener noreferrer" target="_blank">Visit Now</a>
+</div>
+</div>
+<div class="resource-card fade-in" style="animation-delay: 1.4500000000000002s">
+<div class="card-image-wrap">
+<span class="access-badge badge-open">Open</span>
+<img alt="Semantic Scholar" loading="lazy" onerror="this.style.display='none'; this.parentElement.innerHTML += '&lt;div style='font-size:2.5rem;font-weight:700;color:rgba(255,255,255,0.2)'&gt;S&lt;/div&gt;'" src="index_files/semanticscholar.jpg"/>
+</div>
+<div class="card-body">
+<div class="card-header-row">
+<div class="card-title">Semantic Scholar</div>
+<span class="card-category cat-general">General</span>
+</div>
+<p class="card-description">An AI-powered research tool for scientific literature. Uses machine learning to provide a fast, comprehensive overview of important papers in a field.</p>
+<a class="visit-btn" href="https://www.semanticscholar.org/" rel="noopener noreferrer" target="_blank">Visit Now</a>
+</div>
+</div>
+<div class="resource-card fade-in" style="animation-delay: 1.5s">
+<div class="card-image-wrap">
+<span class="access-badge badge-open">Open</span>
+<img alt="Europe PMC" loading="lazy" onerror="this.style.display='none'; this.parentElement.innerHTML += '&lt;div style='font-size:2.5rem;font-weight:700;color:rgba(255,255,255,0.2)'&gt;E&lt;/div&gt;'" src="index_files/europepmc.jpg"/>
+</div>
+<div class="card-body">
+<div class="card-header-row">
+<div class="card-title">Europe PMC</div>
+<span class="card-category cat-medical">Medical</span>
+</div>
+<p class="card-description">A database of life sciences literature and a platform for open science. Provides access to 40+ million abstracts and 8+ million full-text articles.</p>
+<a class="visit-btn" href="https://europepmc.org/" rel="noopener noreferrer" target="_blank">Visit Now</a>
+</div>
+</div>
+<div class="resource-card fade-in" style="animation-delay: 1.55s">
+<div class="card-image-wrap">
+<span class="access-badge badge-open">Open</span>
+<img alt="WorldCat" loading="lazy" onerror="this.style.display='none'; this.parentElement.innerHTML += '&lt;div style='font-size:2.5rem;font-weight:700;color:rgba(255,255,255,0.2)'&gt;W&lt;/div&gt;'" src="index_files/worldcat.jpg"/>
+</div>
+<div class="card-body">
+<div class="card-header-row">
+<div class="card-title">WorldCat</div>
+<span class="card-category cat-general">General</span>
+</div>
+<p class="card-description">The world's largest network of library content and services. Contains over 540 million bibliographic records representing 3 billion physical and digital assets.</p>
+<a class="visit-btn" href="https://www.worldcat.org/" rel="noopener noreferrer" target="_blank">Visit Now</a>
+</div>
+</div>
+<div class="resource-card fade-in" style="animation-delay: 1.6s">
+<div class="card-image-wrap">
+<span class="access-badge badge-login">🔐 Login</span>
+<img alt="Dimensions" loading="lazy" onerror="this.style.display='none'; this.parentElement.innerHTML += '&lt;div style='font-size:2.5rem;font-weight:700;color:rgba(255,255,255,0.2)'&gt;D&lt;/div&gt;'" src="index_files/dimensions.jpg"/>
+</div>
+<div class="card-body">
+<div class="card-header-row">
+<div class="card-title">Dimensions</div>
+<span class="card-category cat-general">General</span>
+</div>
+<p class="card-description">A modern, innovative research data infrastructure and tool. Links over 140 million publications with grants, patents, clinical trials, and policy documents.</p>
+<div class="cred-row">
+<button class="cred-btn" onclick="copyToClipboard('IUO_Dimensions', 'Username')">
+<svg fill="none" height="14" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="14">
+<path d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+                            Copy User
+                        </button>
+<button class="cred-btn" onclick="copyToClipboard('Dimensions_R#26', 'Password')">
+<svg fill="none" height="14" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="14">
+<path d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+                            Copy Pass
+                        </button>
+</div>
+<a class="visit-btn" href="https://app.dimensions.ai/" rel="noopener noreferrer" target="_blank">Visit &amp; Login</a>
+</div>
+</div>
+<div class="resource-card fade-in" style="animation-delay: 1.6500000000000001s">
+<div class="card-image-wrap">
+<span class="access-badge badge-login">🔐 Login</span>
+<img alt="Lens" loading="lazy" onerror="this.style.display='none'; this.parentElement.innerHTML += '&lt;div style='font-size:2.5rem;font-weight:700;color:rgba(255,255,255,0.2)'&gt;L&lt;/div&gt;'" src="index_files/lens.jpg"/>
+</div>
+<div class="card-body">
+<div class="card-header-row">
+<div class="card-title">Lens</div>
+<span class="card-category cat-general">General</span>
+</div>
+<p class="card-description">A free, open, and global patent and scholarly search system. Provides access to over 225 million scholarly works and 100 million patent records.</p>
+<div class="cred-row">
+<button class="cred-btn" onclick="copyToClipboard('IUO_Lens', 'Username')">
+<svg fill="none" height="14" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="14">
+<path d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+                            Copy User
+                        </button>
+<button class="cred-btn" onclick="copyToClipboard('Lens_Patent#26', 'Password')">
+<svg fill="none" height="14" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="14">
+<path d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+                            Copy Pass
+                        </button>
+</div>
+<a class="visit-btn" href="https://www.lens.org/" rel="noopener noreferrer" target="_blank">Visit &amp; Login</a>
+</div>
+</div>
+<div class="resource-card fade-in" style="animation-delay: 1.7000000000000002s">
+<div class="card-image-wrap">
+<span class="access-badge badge-open">Open</span>
+<img alt="BASE" loading="lazy" onerror="this.style.display='none'; this.parentElement.innerHTML += '&lt;div style='font-size:2.5rem;font-weight:700;color:rgba(255,255,255,0.2)'&gt;B&lt;/div&gt;'" src="index_files/base.jpg"/>
+</div>
+<div class="card-body">
+<div class="card-header-row">
+<div class="card-title">BASE</div>
+<span class="card-category cat-open-access">Open Access</span>
+</div>
+<p class="card-description">Bielefeld Academic Search Engine. One of the world's most voluminous search engines especially for academic web resources. Indexes over 300 million documents.</p>
+<a class="visit-btn" href="https://base-search.net/" rel="noopener noreferrer" target="_blank">Visit Now</a>
+</div>
+</div>
+<div class="resource-card fade-in" style="animation-delay: 1.75s">
+<div class="card-image-wrap">
+<span class="access-badge badge-open">Open</span>
+<img alt="RePEc" loading="lazy" onerror="this.style.display='none'; this.parentElement.innerHTML += '&lt;div style='font-size:2.5rem;font-weight:700;color:rgba(255,255,255,0.2)'&gt;R&lt;/div&gt;'" src="index_files/repec.jpg"/>
+</div>
+<div class="card-body">
+<div class="card-header-row">
+<div class="card-title">RePEc</div>
+<span class="card-category cat-business">Business</span>
+</div>
+<p class="card-description">Research Papers in Economics. A collaborative effort of hundreds of volunteers in 102 countries to enhance the dissemination of research in economics and related sciences.</p>
+<a class="visit-btn" href="https://repec.org/" rel="noopener noreferrer" target="_blank">Visit Now</a>
+</div>
+</div>
+<div class="resource-card fade-in" style="animation-delay: 1.8s">
+<div class="card-image-wrap">
+<span class="access-badge badge-login">🔐 Login</span>
+<img alt="EconLit" loading="lazy" onerror="this.style.display='none'; this.parentElement.innerHTML += '&lt;div style='font-size:2.5rem;font-weight:700;color:rgba(255,255,255,0.2)'&gt;E&lt;/div&gt;'" src="index_files/econlit.jpg"/>
+</div>
+<div class="card-body">
+<div class="card-header-row">
+<div class="card-title">EconLit</div>
+<span class="card-category cat-business">Business</span>
+</div>
+<p class="card-description">The American Economic Association's electronic database, the world's foremost source of references to economic literature with over 1.3 million records.</p>
+<div class="cred-row">
+<button class="cred-btn" onclick="copyToClipboard('IUO_EconLit', 'Username')">
+<svg fill="none" height="14" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="14">
+<path d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+                            Copy User
+                        </button>
+<button class="cred-btn" onclick="copyToClipboard('EconLit_AEA#26', 'Password')">
+<svg fill="none" height="14" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="14">
+<path d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+                            Copy Pass
+                        </button>
+</div>
+<a class="visit-btn" href="https://www.aeaweb.org/econlit/" rel="noopener noreferrer" target="_blank">Visit &amp; Login</a>
+</div>
+</div>
+<div class="resource-card fade-in" style="animation-delay: 1.85s">
+<div class="card-image-wrap">
+<span class="access-badge badge-login">🔐 Login</span>
+<img alt="ABI/INFORM" loading="lazy" onerror="this.style.display='none'; this.parentElement.innerHTML += '&lt;div style='font-size:2.5rem;font-weight:700;color:rgba(255,255,255,0.2)'&gt;A&lt;/div&gt;'" src="index_files/abiinform.jpg"/>
+</div>
+<div class="card-body">
+<div class="card-header-row">
+<div class="card-title">ABI/INFORM</div>
+<span class="card-category cat-business">Business</span>
+</div>
+<p class="card-description">A comprehensive business database providing access to thousands of journals, dissertations, working papers, and key business and economics periodicals.</p>
+<div class="cred-row">
+<button class="cred-btn" onclick="copyToClipboard('IUO_ABI', 'Username')">
+<svg fill="none" height="14" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="14">
+<path d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+                            Copy User
+                        </button>
+<button class="cred-btn" onclick="copyToClipboard('ABI_Business#26', 'Password')">
+<svg fill="none" height="14" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="14">
+<path d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+                            Copy Pass
+                        </button>
+</div>
+<a class="visit-btn" href="https://www.proquest.com/products-services/abi_inform.html" rel="noopener noreferrer" target="_blank">Visit &amp; Login</a>
+</div>
+</div>
+<div class="resource-card fade-in" style="animation-delay: 1.9000000000000001s">
+<div class="card-image-wrap">
+<span class="access-badge badge-login">🔐 Login</span>
+<img alt="Agricola" loading="lazy" onerror="this.style.display='none'; this.parentElement.innerHTML += '&lt;div style='font-size:2.5rem;font-weight:700;color:rgba(255,255,255,0.2)'&gt;A&lt;/div&gt;'" src="index_files/agricola.jpg"/>
+</div>
+<div class="card-body">
+<div class="card-header-row">
+<div class="card-title">Agricola</div>
+<span class="card-category cat-science">Science</span>
+</div>
+<p class="card-description">A bibliographic database of citations to the agricultural literature created by the National Agricultural Library and its cooperators. Contains over 5 million records.</p>
+<div class="cred-row">
+<button class="cred-btn" onclick="copyToClipboard('IUO_Agricola', 'Username')">
+<svg fill="none" height="14" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="14">
+<path d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+                            Copy User
+                        </button>
+<button class="cred-btn" onclick="copyToClipboard('Agricola_NAL#26', 'Password')">
+<svg fill="none" height="14" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="14">
+<path d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+                            Copy Pass
+                        </button>
+</div>
+<a class="visit-btn" href="https://www.nal.usda.gov/agricola" rel="noopener noreferrer" target="_blank">Visit &amp; Login</a>
+</div>
+</div>
+<div class="resource-card fade-in" style="animation-delay: 1.9500000000000002s">
+<div class="card-image-wrap">
+<span class="access-badge badge-login">🔐 Login</span>
+<img alt="MEDLINE" loading="lazy" onerror="this.style.display='none'; this.parentElement.innerHTML += '&lt;div style='font-size:2.5rem;font-weight:700;color:rgba(255,255,255,0.2)'&gt;M&lt;/div&gt;'" src="index_files/medline.jpg"/>
+</div>
+<div class="card-body">
+<div class="card-header-row">
+<div class="card-title">MEDLINE</div>
+<span class="card-category cat-medical">Medical</span>
+</div>
+<p class="card-description">The U.S. National Library of Medicine's premier bibliographic database containing references and abstracts on biomedical and health-related topics. Over 30 million records.</p>
+<div class="cred-row">
+<button class="cred-btn" onclick="copyToClipboard('NIE167', 'Username')">
+<svg fill="none" height="14" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="14">
+<path d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+                            Copy User
+                        </button>
+<button class="cred-btn" onclick="copyToClipboard('8h0fD7EM', 'Password')">
+<svg fill="none" height="14" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="14">
+<path d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+                            Copy Pass
+                        </button>
+</div>
+<a class="visit-btn" href="https://www.nlm.nih.gov/medline/medline_overview.html" rel="noopener noreferrer" target="_blank">Visit &amp; Login</a>
+</div>
+</div>
+</div>
+<div class="no-results" id="noResults" style="display: none;">
+<div class="emoji">🔍</div>
+<h3>No resources found</h3>
+<p>Try adjusting your search or filter criteria.</p>
+</div>
+</main>
+<!-- Credential Popup -->
+<div class="cred-popup" id="credPopup">
+<svg fill="none" height="18" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="18">
+<path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span id="popupText">Copied to clipboard!</span>
+</div>
+<!-- Footer -->
+<footer class="footer">
+<p class="footer-text">
+<span class="footer-brand">IGBINEDION UNIVERSITY, OKADA</span> — Edo State, Nigeria (Since 1999)<br/>
+            Nigeria's Premier Private University — Electronic Library Portal — © 2026
+        </p>
+</footer>
+<script>
+        const resources = [
+            {
+                name: "ProQuest",
+                description: "One of the world's largest collections of journals, ebooks, primary sources, dissertations, news and video. Simplifies research for students and researchers across all disciplines.",
+                image: "index_files/proquest.jpg",
+                link: "https://explore.proquest.com/login?accountid=193930",
+                category: "general",
+                username: "NQ65L48SDJ",
+                password: "468FGYA@",
+                loginType: "copy"
+            },
+            {
+                name: "EBSCOhost",
+                description: "A leading database provider offering access to journals, magazines, e-books and more across all academic disciplines. Features advanced search, citation tools, and full-text access.",
+                image: "index_files/ebscohost.jpg",
+                link: "https://search-ebscohost-com.wikipedialibrary.idm.oclc.org/webauth/Community.aspx?code=a28d617441df&ref=https%3a%2f%2fwikipedialibrary.wmflabs.org%2f&ugt=62E771363C2635573736353632553E9225E362D36713659363E323E335133603&authtype=ip&stsug=AhUPE_rCbUX8hDAp6kdaDGAMFgmY1r2sxbZ4VHnWsm66ob9ZxQcJn4DJxk3jQdXnoTUvkVS_wx3AXrQCnseuTLiusOx0Y9X3YA_bsviO0DnW0CE_L6J0-d6kIRHIF53E60XLtRgPi0E2RrevngI1hv8fCbV62z3DK0V5XoNmuuzh5Io&IsAdminMobile=N&encid=320771C67CC675C777C675C672C57CC735133203376335533333&selectServicesToken=AxVDL7tMujsO8PobFY9FopXG6o-hBsjo87DyWtmLYO-Eh1iG6jMLFnVeqnCUVdLF9_HvnHm-XT0CMA1ubtWr3Q9uAO6_FGgMWNGwo8wtGBzO0FYYY3lUgcdlaYrUkdxFZLaS6ByCzb1B14aOVrX6NClMbGsNN5rCrPhfnzHQK_6_6IJpIIULkvA7Dlu-OJYuVI8K8-EAmOpxZnVVbpiipgT8B6TzEZfHZsBTsJzyeCNEbE29w6pswIIj8ZQCdLKKwHF9wFjkmhFvajD0mjuWrKbLsywBajug4xgSSZOwZxZtFCI",
+                category: "general",
+                username: "Olabisi11",
+                password: "National@1960!!!",
+                loginType: "copy"
+            },
+            {
+                name: "WIKIPEDIA LIBRARY",
+                description: "This plaform contains more than 100 of the world's top subscription-only databases, with content in 32 languages, free for Wikipedians of all backgrounds",
+                image: "index_files/wikilib.jpg",
+                link: "https://wikipedialibrary.wmflabs.org/",
+                category: "general",
+                username: "Olabisi11",
+                password: "National@1960!!!",
+                loginType: "copy"
+            },
+            {
+                name: "JSTOR",
+                description: "A digital library with thousands of academic journals, books, and primary sources across disciplines. IP-regulated on campus; off-campus access via token method requiring individual registration.",
+                image: "index_files/image102.jpg",
+                link: "https://www.jstor.org/",
+                category: "general",
+                username: "addjimedu@gmail.com",
+                password: "123library123",
+                loginType: "copy"
+            },
+            {
+                name: "ScienceDirect",
+                description: "Provides subscription-based access to a large database of scientific and medical research. Hosts over 12 million pieces of content from 3,500 academic journals and 34,000 e-books.",
+                image: "index_files/image034.jpg",
+                link: "https://www.sciencedirect.com/",
+                category: "science",
+                username: "library@addjimconsult.com.ng",
+                password: "123library123",
+                loginType: "copy"
+            },
+            {
+                name: "Research4Life — AGORA",
+                description: "Access to Research in Agriculture. Provides over 3,000 journals to institutions in developing countries in food, agriculture, environmental sciences and related social sciences.",
+                image: "index_files/image012.jpg",
+                link: "http://login.research4life.org/tacgw/login.cshtml",
+                category: "science",
+                username: "NIE167",
+                password: "8h0fD7EM",
+                loginType: "copy"
+            },
+            {
+                name: "Research4Life — HINARI",
+                description: "Health InterNetwork Access to Research Initiative. Up to 16,000 journals and 63,000 e-books available to health institutions in more than 120 countries.",
+                image: "index_files/image018.jpg",
+                link: "http://login.research4life.org/tacgw/login.cshtml",
+                category: "medical",
+                username: "NIE167",
+                password: "8h0fD7EM",
+                loginType: "copy"
+            },
+            {
+                name: "Research4Life — OARE",
+                description: "Online Access to Research in the Environment. Enables access to collections of environmental science research for developing countries worldwide.",
+                image: "index_files/image016.jpg",
+                link: "http://login.research4life.org/tacgw/login.cshtml",
+                category: "science",
+                username: "NIE167",
+                password: "8h0fD7EM",
+                loginType: "copy"
+            },
+            {
+                name: "Research4Life — GOALI",
+                description: "Global Online Access to Legal Information. Provides access to academic and professional peer-reviewed journals and publications in selected areas of law.",
+                image: "index_files/image022.jpg",
+                link: "http://goali.ilo.org/content/en/journals.php",
+                category: "law",
+                username: "NIE167",
+                password: "8h0fD7EM",
+                loginType: "copy"
+            },
+            {
+                name: "Research4Life — ARDI",
+                description: "Access to Research for Development and Innovation. Over 100 publishers providing access to around 30,000 journals, books, and reference works for developing countries.",
+                image: "index_files/image020.jpg",
+                link: "https://login.research4life.org/tacgw/AppPortal/",
+                category: "general",
+                username: "NIE167",
+                password: "8h0fD7EM",
+                loginType: "copy"
+            },
+            {
+                name: "PubMed",
+                description: "A free search engine accessing primarily the MEDLINE database of references and abstracts on life sciences and biomedical topics. Maintained by the NLM at the NIH.",
+                image: "index_files/pubmed.jpg",
+                link: "https://pubmed.ncbi.nlm.nih.gov/",
+                category: "medical",
+                username: "",
+                password: "",
+                loginType: "none"
+            },
+            {
+                name: "IEEE Xplore",
+                description: "A research database for discovery and access to journal articles, conference proceedings, technical standards, and related materials on computer science, electrical engineering and electronics.",
+                image: "index_files/ieee.jpg",
+                link: "https://ieeexplore.ieee.org/",
+                category: "engineering",
+                username: "",
+                password: "",
+                loginType: "copy"
+            },
+            {
+                name: "SpringerLink",
+                description: "Provides access to millions of scientific documents from journals, books, series, protocols, reference works and proceedings in science, technology and medicine.",
+                image: "index_files/springer.jpg",
+                link: "https://link.springer.com/",
+                category: "science",
+                username: "",
+                password: "",
+                loginType: "copy"
+            },
+            {
+                name: "Wiley Online Library",
+                description: "A multidisciplinary collection of online resources covering life, health, physical, and social sciences and the humanities. Hosts over 1,600 journals and 21,000 books.",
+                image: "index_files/wiley.jpg",
+                link: "https://onlinelibrary.wiley.com/",
+                category: "science",
+                username: "",
+                password: "",
+                loginType: "copy"
+            },
+            {
+                name: "Cambridge Core",
+                description: "The home of academic content from Cambridge University Press. Provides access to over 1.2 million journal articles and 36,000+ books across all academic disciplines.",
+                image: "index_files/cambridge.jpg",
+                link: "https://www.cambridge.org/core/",
+                category: "general",
+                username: "",
+                password: "",
+                loginType: "copy"
+            },
+            {
+                name: "SAGE Journals",
+                description: "A leading independent academic publisher of journals, books, and electronic media. SAGE publishes over 1,000 journals spanning the humanities, social sciences, science, technology, and medicine.",
+                image: "index_files/sage.jpg",
+                link: "https://journals.sagepub.com/",
+                category: "social",
+                username: "addjimedu@gmail.com",
+                password: "123Library$123",
+                loginType: "copy"
+            },
+            {
+                name: "Web of Science",
+                description: "A comprehensive research platform providing access to the world's leading citation databases. Covers over 21,000 journals across 250+ disciplines with powerful analytics tools.",
+                image: "index_files/webofscience.jpg",
+                link: "https://www.webofscience.com/",
+                category: "general",
+                username: "",
+                password: "",
+                loginType: "copy"
+            },
+            {
+                name: "Google Scholar",
+                description: "A freely accessible web search engine that indexes the full text or metadata of scholarly literature across an array of publishing formats and disciplines.",
+                image: "index_files/googlescholar.jpg",
+                link: "https://scholar.google.com/",
+                category: "general",
+                username: "",
+                password: "",
+                loginType: "none"
+            },
+            {
+                name: "PubMed Central",
+                description: "A free full-text archive of biomedical and life sciences journal literature at the U.S. National Institutes of Health's National Library of Medicine.",
+                image: "index_files/pubmedcentral.jpg",
+                link: "https://www.ncbi.nlm.nih.gov/pmc/",
+                category: "medical",
+                username: "",
+                password: "",
+                loginType: "none"
+            },
+            {
+                name: "Cochrane Library",
+                description: "A collection of databases containing high-quality, independent evidence to inform healthcare decision-making. Includes Cochrane Reviews, trials, and clinical answers.",
+                image: "index_files/cochrane.jpg",
+                link: "https://www.cochranelibrary.com/",
+                category: "medical",
+                username: "",
+                password: "",
+                loginType: "copy"
+            },
+            {
+                name: "Embase",
+                description: "A biomedical and pharmacological database containing over 32 million records. Strong focus on drug and pharmaceutical research with extensive European coverage.",
+                image: "index_files/embase.jpg",
+                link: "https://www.embase.com/",
+                category: "medical",
+                username: "",
+                password: "",
+                loginType: "copy"
+            },
+            {
+                name: "PsycINFO",
+                description: "The premier abstracting and indexing database covering the scholarly literature in the psychological, social, behavioral, and health sciences. Contains over 4 million records.",
+                image: "index_files/psycinfo.jpg",
+                link: "https://www.apa.org/pubs/databases/psycinfo",
+                category: "social",
+                username: "",
+                password: "",
+                loginType: "copy"
+            },
+            {
+                name: "ACM Digital Library",
+                description: "The most comprehensive collection of full-text articles and bibliographic records in computing and information technology. Covers journals, magazines, transactions, and proceedings.",
+                image: "index_files/acm.jpg",
+                link: "https://dl.acm.org/",
+                category: "engineering",
+                username: "",
+                password: "",
+                loginType: "copy"
+            },
+            {
+                name: "Emerald Insight",
+                description: "A global publisher linking research and practice to the benefit of society. Publishes over 300 journals and 2,500 books in business, management, and social sciences.",
+                image: "index_files/emerald.jpg",
+                link: "https://www.emerald.com/insight/",
+                category: "business",
+                username: "addjimedu@gmail.com",
+                password: "123library.123",
+                loginType: "copy"
+            },
+            {
+                name: "DOAJ",
+                description: "The Directory of Open Access Journals is a community-curated online directory that indexes and provides access to high quality, open access, peer-reviewed journals.",
+                image: "index_files/doaj.jpg",
+                link: "https://doaj.org/",
+                category: "open-access",
+                username: "",
+                password: "",
+                loginType: "none"
+            },
+            {
+                name: "arXiv",
+                description: "An open-access repository of electronic preprints and postprints approved for publication after moderation. Covers physics, mathematics, computer science, and quantitative biology.",
+                image: "index_files/arxiv.jpg",
+                link: "https://arxiv.org/",
+                category: "open-access",
+                username: "",
+                password: "",
+                loginType: "none"
+            },
+            {
+                name: "SSRN",
+                description: "A multi-disciplinary online research community devoted to the rapid worldwide dissemination of research. Covers social sciences, humanities, and life sciences.",
+                image: "index_files/ssrn.jpg",
+                link: "https://www.ssrn.com/",
+                category: "social",
+                username: "IUO_SSRN",
+                password: "SSRN_Social#2026",
+                loginType: "copy"
+            },
+            {
+                name: "Directory of Open Access Journals",
+                description: "A community-curated online directory that indexes and provides access to high quality, open access, peer-reviewed journals across all disciplines.",
+                image: "index_files/doaj.jpg",
+                link: "https://doaj.org/",
+                category: "open-access",
+                username: "",
+                password: "",
+                loginType: "none"
+            },
+            {
+                name: "CORE",
+                description: "The world's largest collection of open access research papers. Aggregates and enriches open access research papers from repositories and journals worldwide.",
+                image: "index_files/core.jpg",
+                link: "https://core.ac.uk/",
+                category: "open-access",
+                username: "",
+                password: "",
+                loginType: "none"
+            },
+            {
+                name: "Semantic Scholar",
+                description: "An AI-powered research tool for scientific literature. Uses machine learning to provide a fast, comprehensive overview of important papers in a field.",
+                image: "index_files/semanticscholar.jpg",
+                link: "https://www.semanticscholar.org/",
+                category: "general",
+                username: "",
+                password: "",
+                loginType: "none"
+            },
+            {
+                name: "Europe PMC",
+                description: "A database of life sciences literature and a platform for open science. Provides access to 40+ million abstracts and 8+ million full-text articles.",
+                image: "index_files/europepmc.jpg",
+                link: "https://europepmc.org/",
+                category: "medical",
+                username: "",
+                password: "",
+                loginType: "none"
+            },
+            {
+                name: "WorldCat",
+                description: "The world's largest network of library content and services. Contains over 540 million bibliographic records representing 3 billion physical and digital assets.",
+                image: "index_files/worldcat.jpg",
+                link: "https://www.worldcat.org/",
+                category: "general",
+                username: "",
+                password: "",
+                loginType: "none"
+            },
+            {
+                name: "Dimensions",
+                description: "A modern, innovative research data infrastructure and tool. Links over 140 million publications with grants, patents, clinical trials, and policy documents.",
+                image: "index_files/dimensions.jpg",
+                link: "https://app.dimensions.ai/",
+                category: "general",
+                username: "IUO_Dimensions",
+                password: "Dimensions_R#26",
+                loginType: "copy"
+            },
+            {
+                name: "Lens",
+                description: "A free, open, and global patent and scholarly search system. Provides access to over 225 million scholarly works and 100 million patent records.",
+                image: "index_files/lens.jpg",
+                link: "https://www.lens.org/",
+                category: "general",
+                username: "IUO_Lens",
+                password: "Lens_Patent#26",
+                loginType: "copy"
+            },
+            {
+                name: "BASE",
+                description: "Bielefeld Academic Search Engine. One of the world's most voluminous search engines especially for academic web resources. Indexes over 300 million documents.",
+                image: "index_files/base.jpg",
+                link: "https://base-search.net/",
+                category: "open-access",
+                username: "",
+                password: "",
+                loginType: "none"
+            },
+            {
+                name: "RePEc",
+                description: "Research Papers in Economics. A collaborative effort of hundreds of volunteers in 102 countries to enhance the dissemination of research in economics and related sciences.",
+                image: "index_files/repec.jpg",
+                link: "https://repec.org/",
+                category: "business",
+                username: "",
+                password: "",
+                loginType: "none"
+            },
+            {
+                name: "EconLit",
+                description: "The American Economic Association's electronic database, the world's foremost source of references to economic literature with over 1.3 million records.",
+                image: "index_files/econlit.jpg",
+                link: "https://www.aeaweb.org/econlit/",
+                category: "business",
+                username: "IUO_EconLit",
+                password: "EconLit_AEA#26",
+                loginType: "copy"
+            },
+            {
+                name: "ABI/INFORM",
+                description: "A comprehensive business database providing access to thousands of journals, dissertations, working papers, and key business and economics periodicals.",
+                image: "index_files/abiinform.jpg",
+                link: "https://www.proquest.com/products-services/abi_inform.html",
+                category: "business",
+                username: "IUO_ABI",
+                password: "ABI_Business#26",
+                loginType: "copy"
+            },
+            {
+                name: "Agricola",
+                description: "A bibliographic database of citations to the agricultural literature created by the National Agricultural Library and its cooperators. Contains over 5 million records.",
+                image: "index_files/agricola.jpg",
+                link: "https://www.nal.usda.gov/agricola",
+                category: "science",
+                username: "IUO_Agricola",
+                password: "Agricola_NAL#26",
+                loginType: "copy"
+            },
+            {
+                name: "MEDLINE",
+                description: "The U.S. National Library of Medicine's premier bibliographic database containing references and abstracts on biomedical and health-related topics. Over 30 million records.",
+                image: "index_files/medline.jpg",
+                link: "https://www.nlm.nih.gov/medline/medline_overview.html",
+                category: "medical",
+                username: "NIE167",
+                password: "8h0fD7EM",
+                loginType: "copy"
+            }
+        ];
+
+        let currentCategory = 'all';
+        let searchQuery = '';
+
+        function copyToClipboard(text, label) {
+            navigator.clipboard.writeText(text).then(() => {
+                showPopup(`${label} copied: ${text}`);
+            }).catch(() => {
+                const textarea = document.createElement('textarea');
+                textarea.value = text;
+                document.body.appendChild(textarea);
+                textarea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textarea);
+                showPopup(`${label} copied: ${text}`);
+            });
+        }
+
+        function showPopup(message) {
+            const popup = document.getElementById('credPopup');
+            document.getElementById('popupText').textContent = message;
+            popup.classList.add('show');
+            setTimeout(() => popup.classList.remove('show'), 3000);
+        }
+
+        function getActionButtons(r) {
+            if (r.loginType === 'none' || (!r.username && !r.password)) {
+                return `<a href="${r.link}" target="_blank" rel="noopener noreferrer" class="visit-btn">Visit Now</a>`;
+            } else {
+                return `
+                    <div class="cred-row">
+                        <button onclick="copyToClipboard('${r.username}', 'Username')" class="cred-btn">
+                            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+                            </svg>
+                            Copy User
+                        </button>
+                        <button onclick="copyToClipboard('${r.password}', 'Password')" class="cred-btn">
+                            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+                            </svg>
+                            Copy Pass
+                        </button>
+                    </div>
+                    <a href="${r.link}" target="_blank" rel="noopener noreferrer" class="visit-btn">Visit & Login</a>
+                `;
+            }
+        }
+
+        function renderResources() {
+            const grid = document.getElementById('resourcesGrid');
+            const noResults = document.getElementById('noResults');
+            const countDisplay = document.getElementById('countDisplay');
+
+            let filtered = resources.filter(r => {
+                const matchesCategory = currentCategory === 'all' || r.category === currentCategory;
+                const matchesSearch = !searchQuery ||
+                    r.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                    r.description.toLowerCase().includes(searchQuery.toLowerCase());
+                return matchesCategory && matchesSearch;
+            });
+
+            countDisplay.textContent = filtered.length;
+
+            if (filtered.length === 0) {
+                grid.innerHTML = '';
+                noResults.style.display = 'block';
+                return;
+            }
+
+            noResults.style.display = 'none';
+
+            const categoryColors = {
+                'general': 'cat-general', 'medical': 'cat-medical',
+                'science': 'cat-science', 'open-access': 'cat-open-access', 'law': 'cat-law',
+                'social': 'cat-social', 'arts': 'cat-arts', 'engineering': 'cat-engineering',
+                'business': 'cat-business'
+            };
+
+            const categoryLabels = {
+                'general': 'General', 'medical': 'Medical',
+                'science': 'Science', 'open-access': 'Open Access', 'law': 'Law',
+                'social': 'Social Sciences', 'arts': 'Arts & Humanities',
+                'engineering': 'Engineering', 'business': 'Business'
+            };
+
+            grid.innerHTML = filtered.map((r, i) => {
+                let name = r.name;
+                let desc = r.description;
+                if (searchQuery) {
+                    const regex = new RegExp(`(${searchQuery})`, 'gi');
+                    name = name.replace(regex, '<mark>$1</mark>');
+                    desc = desc.replace(regex, '<mark>$1</mark>');
+                }
+
+                const hasCreds = r.username || r.password;
+                const badge = hasCreds
+                    ? '<span class="access-badge badge-login">🔐 Login</span>'
+                    : '<span class="access-badge badge-open">Open</span>';
+
+                const catClass = categoryColors[r.category] || 'cat-general';
+                const catLabel = categoryLabels[r.category] || r.category;
+
+                return `
+                    <div class="resource-card fade-in" style="animation-delay: ${i * 0.05}s">
+                        <div class="card-image-wrap">
+                            ${badge}
+                            <img src="${r.image}" alt="${r.name}" loading="lazy"
+                                onerror="this.style.display='none'; this.parentElement.innerHTML += '<div style=\'font-size:2.5rem;font-weight:700;color:rgba(255,255,255,0.2)\'>${r.name.charAt(0)}</div>'">
+                        </div>
+                        <div class="card-body">
+                            <div class="card-header-row">
+                                <div class="card-title">${name}</div>
+                                <span class="card-category ${catClass}">${catLabel}</span>
+                            </div>
+                            <p class="card-description">${desc}</p>
+                            ${getActionButtons(r)}
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        document.getElementById('searchInput').addEventListener('input', (e) => {
+            searchQuery = e.target.value.trim();
+            renderResources();
+        });
+
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                currentCategory = btn.dataset.category;
+                renderResources();
+            });
+        });
+
+        renderResources();
+    </script>
+<script crossorigin="anonymous" data-cf-beacon='{"version":"2024.11.0","token":"496d8f29be554e45a3d83b30c480977d","r":1,"spa":2}' integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" type="module"></script>
+</body></html>

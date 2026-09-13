@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Login — Igbinedion University Okada</title>
+<link href="favicon.ico" rel="shortcut icon"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Playfair+Display:wght@700&amp;display=swap" rel="stylesheet"/>
+<style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: url('dark-bg.jpg') no-repeat center center fixed;
+            background-size: cover;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        /* Dark overlay for readability */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10, 15, 35, 0.88);
+            z-index: -1;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 420px;
+        }
+
+        /* Logo Section */
+        .logo-section {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .logo-section img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 3px solid rgba(255, 193, 7, 0.6);
+            object-fit: cover;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 5px;
+        }
+
+        .university-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #ffffff;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            margin-top: 15px;
+            letter-spacing: 1px;
+        }
+
+        .portal-title {
+            color: #ffc107;
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-top: 5px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* Login Form Card */
+        .login-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .login-card::before {
+            content: '';
+            display: block;
+            height: 3px;
+            background: rgba(255, 193, 7, 0.6);
+            border-radius: 3px 3px 0 0;
+            margin: -30px -30px 25px -30px;
+            width: calc(100% + 60px);
+        }
+
+        /* Error Message */
+        .error-message {
+            background: rgba(220, 53, 69, 0.2);
+            border: 1px solid rgba(220, 53, 69, 0.4);
+            color: #ff6b6b;
+            padding: 12px 15px;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        /* Form Inputs */
+        .form__input-group {
+            margin-bottom: 18px;
+        }
+
+        .form__input {
+            width: 100%;
+            padding: 14px 18px;
+            background: rgba(15, 23, 42, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 10px;
+            color: #fff;
+            font-size: 1rem;
+            font-family: 'Inter', sans-serif;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .form__input::placeholder {
+            color: rgba(255, 255, 255, 0.35);
+        }
+
+        .form__input:focus {
+            border-color: rgba(255, 193, 7, 0.5);
+            box-shadow: 0 0 0 3px rgba(255, 193, 7, 0.1);
+            background: rgba(15, 23, 42, 0.7);
+        }
+
+        /* Password Toggle Row */
+        .password-toggle-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+            padding: 10px 12px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .password-toggle-row input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            accent-color: #ffc107;
+            cursor: pointer;
+        }
+
+        .passwordlabel {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        /* Submit Button */
+        .form__button {
+            width: 100%;
+            padding: 14px;
+            background: rgba(220, 53, 69, 0.85);
+            color: #fff;
+            border: 1px solid rgba(220, 53, 69, 0.5);
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            font-family: 'Inter', sans-serif;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .form__button:hover {
+            background: rgba(220, 53, 69, 1);
+            box-shadow: 0 5px 20px rgba(220, 53, 69, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .form__button:active {
+            transform: translateY(0);
+        }
+
+        /* Footer */
+        .footer-text {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.3);
+            font-size: 0.75rem;
+            margin-top: 25px;
+        }
+
+        .footer-brand {
+            color: #ffc107;
+            font-weight: 600;
+        }
+
+        /* Autofill fix */
+        input:-webkit-autofill,
+        input:-webkit-autofill:hover,
+        input:-webkit-autofill:focus {
+            -webkit-text-fill-color: white;
+            -webkit-box-shadow: 0 0 0px 1000px rgba(15, 23, 42, 0.7) inset;
+            transition: background-color 5000s ease-in-out 0s;
+        }
+
+        /* Responsive */
+        @media (max-width: 480px) {
+            .university-name {
+                font-size: 1.3rem;
+            }
+            .login-card {
+                padding: 20px;
+            }
+            .login-card::before {
+                margin: -20px -20px 20px -20px;
+                width: calc(100% + 40px);
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+<!-- Logo Section -->
+<div class="logo-section">
+<img alt="Igbinedion University Logo" src="index_files/image002.jpg"/>
+<div class="university-name">IGBINEDION UNIVERSITY, OKADA</div>
+<div class="portal-title">Electronic Library Portal</div>
+</div>
+<!-- Login Card -->
+<div class="login-card">
+<!-- Error Message -->
+<!-- Login Form -->
+<form action="" class="form" id="login" method="POST">
+<div class="form__input-group">
+<input autofocus="" class="form__input" id="loginUsername" name="username" placeholder="Username" required="" type="text"/>
+</div>
+<div class="form__input-group">
+<input class="form__input" id="loginPassword" name="password" placeholder="Password" required="" type="password"/>
+</div>
+<div class="password-toggle-row">
+<input id="login--password--checkbox" type="checkbox"/>
+<label class="passwordlabel" for="login--password--checkbox">Show Password</label>
+</div>
+<button class="form__button" id="loginButton" type="submit">Continue</button>
+</form>
+</div>
+<!-- Footer -->
+<p class="footer-text">
+<span class="footer-brand">IGBINEDION UNIVERSITY, OKADA</span> — Edo State, Nigeria (Since 1999)<br/>
+            Nigeria's Premier Private University
+        </p>
+</div>
+<script>
+        // Show/Hide Password Toggle
+        const passwordCheckbox = document.getElementById('login--password--checkbox');
+        const passwordInput = document.getElementById('loginPassword');
+
+        passwordCheckbox.addEventListener('change', function() {
+            passwordInput.type = this.checked ? 'text' : 'password';
+        });
+    </script>
+<script crossorigin="anonymous" data-cf-beacon='{"version":"2024.11.0","token":"496d8f29be554e45a3d83b30c480977d","r":1,"spa":2}' integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" type="module"></script>
+</body></html>
