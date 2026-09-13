@@ -2,7 +2,7 @@
 <html lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>IGBINEDION UNIVERSITY OKADA — Electronic Databases &amp; Web Resources</title>
+<title>PEACELAND UNIVERSITY ENUGU — Electronic Databases &amp; Web Resources</title>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;family=Playfair+Display:wght@700&amp;display=swap" rel="stylesheet"/>
@@ -544,13 +544,13 @@
 <header class="header">
 <div class="header-content">
 <div class="header-left">
-<img alt="IUO Logo" class="university-logo" src="index_files/image002.jpg"/>
+<img alt="Peaceland University Enugu Logo" class="university-logo" src="index_files/Peaceland%20Logo.jpg"/>
 <div class="header-text">
-<h1>IGBINEDION UNIVERSITY, OKADA</h1>
+<h1>PEACELAND UNIVERSITY ENUGU</h1>
 <p>Directory of Electronic Databases &amp; Web Resources</p>
 </div>
 </div>
-<a class="logout-btn" href="index.php?logout=1">
+<a class="logout-btn" href="login.html" onclick="logoutPortal()">
 <svg fill="none" height="16" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="16">
 <path d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" stroke-linecap="round" stroke-linejoin="round"></path>
 </svg>
@@ -558,7 +558,7 @@
             </a>
 </div>
 <div class="marquee-container">
-<span class="marquee-text">🎓 IUO Electronic Library — Access World-Class Academic Resources — ProQuest • EBSCOhost • ScienceDirect • JSTOR • Research4Life (AGORA • HINARI • OARE • GOALI • ARDI) • IEEE Xplore • SpringerLink • Wiley • Web of Science • PubMed • 50+ Databases 🎓</span>
+<span class="marquee-text">🎓 Peaceland University Enugu Electronic Library — Access World-Class Academic Resources — ProQuest • EBSCOhost • ScienceDirect • JSTOR • Research4Life (AGORA • HINARI • OARE • GOALI • ARDI) • IEEE Xplore • SpringerLink • Wiley • Web of Science • PubMed • 50+ Databases 🎓</span>
 </div>
 </header>
 <!-- Search & Filter -->
@@ -585,6 +585,20 @@
 <!-- Main Content -->
 <main class="main-content">
 <div class="cards-grid" id="resourcesGrid">
+<div class="resource-card fade-in" style="animation-delay: 0s">
+<div class="card-image-wrap">
+<span class="access-badge badge-open">Open</span>
+<img alt="Peaceland Law Library" loading="lazy" onerror="this.style.display='none'; this.parentElement.innerHTML += '&lt;div style='font-size:2.5rem;font-weight:700;color:rgba(255,255,255,0.2)'&gt;P&lt;/div&gt;'" src="index_files/pue-lib-img.png"/>
+</div>
+<div class="card-body">
+<div class="card-header-row">
+<div class="card-title">Peaceland Law Library</div>
+<span class="card-category cat-law">Law</span>
+</div>
+<p class="card-description">Peaceland Law Library in Enugu, Nigeria, features a modern, "world-class" library designed to support research and academic excellence.</p>
+<a class="visit-btn" href="https://www.pue.sublibrary.ng/pages/pue_law.html" rel="noopener noreferrer" target="_blank">Visit Now</a>
+</div>
+</div>
 <div class="resource-card fade-in" style="animation-delay: 0s">
 <div class="card-image-wrap">
 <span class="access-badge badge-login">🔐 Login</span>
@@ -1428,12 +1442,33 @@
 <!-- Footer -->
 <footer class="footer">
 <p class="footer-text">
-<span class="footer-brand">IGBINEDION UNIVERSITY, OKADA</span> — Edo State, Nigeria (Since 1999)<br/>
-            Nigeria's Premier Private University — Electronic Library Portal — © 2026
+<span class="footer-brand">PEACELAND UNIVERSITY ENUGU</span> — Enugu State, Nigeria<br/>
+            Motto: Integral Human Development — Electronic Library Portal — © 2026
         </p>
 </footer>
 <script>
+        // Portal access guard
+        (function () {
+            try {
+                if (sessionStorage.getItem('pueLibraryAuth') !== 'true') {
+                    window.location.replace('login.html');
+                }
+            } catch (err) {}
+        })();
+
+        function logoutPortal() {
+            try { sessionStorage.removeItem('pueLibraryAuth'); } catch (err) {}
+        }
+
         const resources = [
+            {
+                name: "Peaceland Law Library",
+                description: "Peaceland Law Library in Enugu, Nigeria, features a modern, \"world-class\" library designed to support research and academic excellence.",
+                image: "index_files/pue-lib-img.png",
+                link: "https://www.pue.sublibrary.ng/pages/pue_law.html",
+                category: "law",
+                loginType: "none"
+            },
             {
                 name: "ProQuest",
                 description: "One of the world's largest collections of journals, ebooks, primary sources, dissertations, news and video. Simplifies research for students and researchers across all disciplines.",

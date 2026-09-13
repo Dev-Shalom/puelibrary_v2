@@ -2,7 +2,7 @@
 <html lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Login — Igbinedion University Okada</title>
+<title>Login — Peaceland University Enugu</title>
 <link href="favicon.ico" rel="shortcut icon"/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Playfair+Display:wght@700&amp;display=swap" rel="stylesheet"/>
 <style>
@@ -14,7 +14,7 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background: url('dark-bg.jpg') no-repeat center center fixed;
+            background: url('index_files/PeacelandBackgroundImage.jpg') no-repeat center center fixed;
             background-size: cover;
             min-height: 100vh;
             display: flex;
@@ -229,13 +229,14 @@
 <div class="container">
 <!-- Logo Section -->
 <div class="logo-section">
-<img alt="Igbinedion University Logo" src="index_files/image002.jpg"/>
-<div class="university-name">IGBINEDION UNIVERSITY, OKADA</div>
+<img alt="Peaceland University Enugu Logo" src="index_files/Peaceland%20Logo.jpg"/>
+<div class="university-name">PEACELAND UNIVERSITY ENUGU</div>
 <div class="portal-title">Electronic Library Portal</div>
 </div>
 <!-- Login Card -->
 <div class="login-card">
 <!-- Error Message -->
+<div class="error-message" id="errorMessage" style="display:none;">Invalid username or password. Please try again.</div>
 <!-- Login Form -->
 <form action="" class="form" id="login" method="POST">
 <div class="form__input-group">
@@ -253,8 +254,8 @@
 </div>
 <!-- Footer -->
 <p class="footer-text">
-<span class="footer-brand">IGBINEDION UNIVERSITY, OKADA</span> — Edo State, Nigeria (Since 1999)<br/>
-            Nigeria's Premier Private University
+<span class="footer-brand">PEACELAND UNIVERSITY ENUGU</span> — Enugu State, Nigeria<br/>
+            Motto: Integral Human Development
         </p>
 </div>
 <script>
@@ -264,6 +265,31 @@
 
         passwordCheckbox.addEventListener('change', function() {
             passwordInput.type = this.checked ? 'text' : 'password';
+        });
+
+        // Portal Credentials
+        const PORTAL_USERNAME = 'puelibrary';
+        const PORTAL_PASSWORD = 'puelibrary2026';
+
+        const loginForm = document.getElementById('login');
+        const usernameInput = document.getElementById('loginUsername');
+        const errorMessage = document.getElementById('errorMessage');
+
+        loginForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const username = usernameInput.value.trim();
+            const password = passwordInput.value;
+
+            if (username === PORTAL_USERNAME && password === PORTAL_PASSWORD) {
+                errorMessage.style.display = 'none';
+                try { sessionStorage.setItem('pueLibraryAuth', 'true'); } catch (err) {}
+                window.location.href = 'page.html';
+            } else {
+                errorMessage.style.display = 'block';
+                passwordInput.value = '';
+                passwordInput.focus();
+            }
         });
     </script>
 <script crossorigin="anonymous" data-cf-beacon='{"version":"2024.11.0","token":"496d8f29be554e45a3d83b30c480977d","r":1,"spa":2}' integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" type="module"></script>
